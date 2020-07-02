@@ -40,8 +40,11 @@ public class ChangeSymbolsByCharImpl implements ChangeSymbols {
                     for (int j = 0; j < length; j++) {
                         textWithSubString[i + j] = subString.charAt(j);
                     }
-                    for (int j = i + length + distinction; j < text.length(); j++) {
-                        textWithSubString[j] = text.charAt(j);
+                    for (int j = i;
+                         j < text.length() + length + distinction;
+                         j++) {
+                        textWithSubString[j] = text.
+                                charAt(j + length + distinction);
                     }
 
                     castedText = textWithSubString;
