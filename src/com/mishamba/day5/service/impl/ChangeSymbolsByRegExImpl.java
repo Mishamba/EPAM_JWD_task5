@@ -26,7 +26,7 @@ public class ChangeSymbolsByRegExImpl implements ChangeSymbols {
     public String changeWordsSelectedByLength(String text, int length,
                                               String subString) {
         Pattern pattern = Pattern.compile
-                ("(?<=\\s)\\w{" + length + "}(?!\\w)");
+                ("(?<=\\b)\\w{" + length + "}(?!\\w)");
         Matcher matcher = pattern.matcher(text);
         return matcher.replaceAll(subString);
     }

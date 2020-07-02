@@ -14,6 +14,6 @@ public class RemoveSymbolsByStringImpl implements RemoveSymbols {
     @Override
     public String removeWordsStartsWithVowelsByLength(@NotNull String text,
                                                       int length) {
-        return text.replaceAll("(?<=\\s)\\w{" + length + "}(?!\\w)", " ");
+        return text.replaceAll("(?<=\\b)\\w{" + length + "}(?!\\w)", " ");
     }
 }

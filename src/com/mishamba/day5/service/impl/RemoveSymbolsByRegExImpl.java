@@ -10,7 +10,7 @@ public class RemoveSymbolsByRegExImpl implements RemoveSymbols {
     @Override
     public String removePunctuation(String text) {
         Pattern pattern = Pattern.compile
-                ("[!@#$%^&*()_+-=}{\\]\\[\"':;?/>.<,\\\\|`~]");
+                ("\\p{Punct}");
         Matcher matcher = pattern.matcher(text);
         return matcher.replaceAll(" ");
     }
@@ -19,7 +19,7 @@ public class RemoveSymbolsByRegExImpl implements RemoveSymbols {
     public String removeWordsStartsWithVowelsByLength(String text,
                                                       int length) {
         Pattern pattern = Pattern.compile
-                ("(?<=\\s)[eyuioa]\\w{" + (length - 1) + ")}(?!\\w)");
+                ("(?<=\\b)[eyuioa]\\w{" + (length - 1) + "}(?!\\w)");
         Matcher matcher = pattern.matcher(text);
         return matcher.replaceAll("");
     }

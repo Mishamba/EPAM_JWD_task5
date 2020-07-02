@@ -44,12 +44,26 @@ public class RemoveSymbolsByCharImpl implements RemoveSymbols {
         char[] castedText = text.toCharArray();
         for (int i = 0; i < text.length(); i++) {
             if (
-                    (castedText[i] == 'e') ||
-                    (castedText[i] == 'y') ||
-                    (castedText[i] == 'u') ||
-                    (castedText[i] == 'i') ||
-                    (castedText[i] == 'o') ||
-                    (castedText[i] == 'a')
+                    (castedText[i] == '!') ||
+                    (castedText[i] == '@') ||
+                    (castedText[i] == '#') ||
+                    (castedText[i] == '\'') ||
+                    (castedText[i] == '\"') ||
+                    (castedText[i] == '^') ||
+                    (castedText[i] == '?') ||
+                    (castedText[i] == '*') ||
+                    (castedText[i] == '(') ||
+                    (castedText[i] == ')') ||
+                    (castedText[i] == '-') ||
+                    (castedText[i] == '_') ||
+                    (castedText[i] == '=') ||
+                    (castedText[i] == '\\') ||
+                    (castedText[i] == '|') ||
+                    (castedText[i] == ']') ||
+                    (castedText[i] == ',') ||
+                    (castedText[i] == '.') ||
+                    (castedText[i] == ';') ||
+                    (castedText[i] == ':')
             ) {
                     char[] textWithoutSubString = new char
                             [text.length() - 1];

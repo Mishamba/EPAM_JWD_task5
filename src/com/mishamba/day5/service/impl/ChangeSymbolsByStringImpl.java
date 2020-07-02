@@ -22,7 +22,7 @@ public class ChangeSymbolsByStringImpl implements ChangeSymbols {
     public String changeWordsSelectedByLength(@NotNull String text, int length,
                                               String subString) {
         return text.replaceFirst(
-                    "(?<=\\s)\\w{" + length + "}(?!\\w)",
+                    "(?<=\\b)\\w{" + length + "}(?!\\w)",
                     subString);
     }
 }
