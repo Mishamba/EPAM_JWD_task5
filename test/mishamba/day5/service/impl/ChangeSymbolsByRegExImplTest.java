@@ -37,7 +37,7 @@ public class ChangeSymbolsByRegExImplTest {
     }
 
     @Test
-    public void testChangeEveryKLetter() { // TODO: 7/2/20  
+    public void testChangeEveryKLetter() {
         ChangeSymbolsByRegExImpl service = new ChangeSymbolsByRegExImpl(); 
         String actualText = service.changeEveryKLetter(sourceText, 5, "H");
         assertEquals(actualText, resultEvery5LetterChangeText);

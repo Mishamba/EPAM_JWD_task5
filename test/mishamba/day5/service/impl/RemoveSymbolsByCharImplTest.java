@@ -32,17 +32,17 @@ public class RemoveSymbolsByCharImplTest {
     }
 
     @Test
-    public void testRemoveWordsStartsWithVowelsByLength() { // TODO: 7/2/20  
-        RemoveSymbolsByCharImpl service = new RemoveSymbolsByCharImpl();
-        String actualText = service.removePunctuation(sourceText);
-        assertEquals(actualText, resultPunctuationRemovingText);
-    }
-
-    @Test
-    public void testRemovePunctuation() { // TODO: 7/2/20  
+    public void testRemoveWordsStartsWithVowelsByLength() {
         RemoveSymbolsByCharImpl service = new RemoveSymbolsByCharImpl();
         String actualText = service.
                 removeWordsStartsWithVowelsByLength(sourceText, 4);
         assertEquals(actualText, resultRemoveWordsStartsWithVowelsByLength);
+    }
+
+    @Test
+    public void testRemovePunctuation() {
+        RemoveSymbolsByCharImpl service = new RemoveSymbolsByCharImpl();
+        String actualText = service.removePunctuation(sourceText);
+        assertEquals(actualText, resultPunctuationRemovingText);
     }
 }

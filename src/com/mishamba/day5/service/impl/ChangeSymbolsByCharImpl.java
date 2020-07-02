@@ -47,13 +47,13 @@ public class ChangeSymbolsByCharImpl implements ChangeSymbols {
                 int distinction = subString.length() - length;
                 char[] textWithSubString = new char
                         [text.length() + distinction];
-                for (int j = 0; j < begin; j++) {
-                    textWithSubString[j] = text.charAt(j);
+                if (begin >= 0) {
+                    System.arraycopy(castedText, 0, textWithSubString, 0, begin);
                 }
                 for (int j = 0; j < subString.length(); j++) {
                     textWithSubString[begin + j] = subString.charAt(j);
                 }
-                for (int j = i;
+                for (int j = i + 1;
                      j < text.length() + distinction;
                      j++) {
                     textWithSubString[j] = text.

@@ -44,7 +44,7 @@ public class ChangeSymbolsByCharImplTest {
     }
 
     @Test
-    public void testChangeWordsSelectedByLength() { // TODO: 7/2/20
+    public void testChangeWordsSelectedByLength() {
         ChangeSymbolsByCharImpl service = new ChangeSymbolsByCharImpl();
         String actualText = service.changeWordsSelectedByLength(sourceText, 3, "HHH");
         assertEquals(actualText, resultChangeWordWithSubStringText);

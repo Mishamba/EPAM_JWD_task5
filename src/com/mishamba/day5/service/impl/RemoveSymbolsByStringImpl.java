@@ -7,13 +7,14 @@ public class RemoveSymbolsByStringImpl implements RemoveSymbols {
 
     @Override
     public String removePunctuation(@NotNull String text) {
-        return text.replaceAll(
-                "[!@#$%^&*()_+-=}{\\]\\[\"':;?/>.<,\\\\|`~]", " ");
+        String processingText = text.replaceAll(
+                "\\w\\p{Punct}\\w", " ");
+        return processingText.replaceAll("\\p{Punct}", "");
     }
 
     @Override
     public String removeWordsStartsWithVowelsByLength(@NotNull String text,
                                                       int length) {
-        return text.replaceAll("(?<=\\b)\\w{" + length + "}(?!\\w)", " ");
+        return text.replaceAll("(?<=\\b)[eyuioa]\\w{" + (length - 1) + "}(?!\\w)", "");
     }
 }

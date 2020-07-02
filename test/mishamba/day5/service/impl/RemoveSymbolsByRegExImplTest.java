@@ -33,7 +33,7 @@ public class RemoveSymbolsByRegExImplTest {
     }
 
     @Test
-    public void testRemovePunctuation() { // TODO: 7/2/20  
+    public void testRemovePunctuation() {
         RemoveSymbolsByRegExImpl service = new RemoveSymbolsByRegExImpl();
         String actualText = service.removePunctuation(sourceText);
         assertEquals(actualText, resultPunctuationRemovingText);

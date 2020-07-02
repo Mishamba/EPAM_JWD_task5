@@ -33,14 +33,14 @@ public class RemoveSymbolsByStringImplTest {
     }
 
     @Test
-    public void testRemovePunctuation() { // TODO: 7/2/20  
+    public void testRemovePunctuation() {
         RemoveSymbolsByStringImpl service = new RemoveSymbolsByStringImpl();
         String actualText = service.removePunctuation(sourceText);
         assertEquals(actualText, resultPunctuationRemovingText);
     }
 
     @Test
-    public void testRemoveWordsStartsWithVowelsByLength() { // TODO: 7/2/20  
+    public void testRemoveWordsStartsWithVowelsByLength() {
         RemoveSymbolsByStringImpl service = new RemoveSymbolsByStringImpl();
         String actualText = service.
                 removeWordsStartsWithVowelsByLength(sourceText, 4);

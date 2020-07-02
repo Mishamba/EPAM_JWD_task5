@@ -14,9 +14,9 @@ import static org.testng.Assert.*;
 
 public class ChangeSymbolsByStringImplTest {
     private String sourceText;
-    private String resultChangeWordWithSubStringText;
-    private String resultCorrectWrongLetterText;
-    private String resultEvery5LetterChangeText;
+    private String expectedChangeWordWithSubStringText;
+    private String expectedCorrectWrongLetterText;
+    private String expectedEvery5LetterChangeText;
 
     @BeforeTest
     public void readTexts() throws ProgramException {
@@ -25,39 +25,39 @@ public class ChangeSymbolsByStringImplTest {
         this.sourceText = reader.readLines(sourceText).get(0);
         Path changeWordWithSubStringPath = Paths.
                 get("test_texts/forChangeWordWithSubString");
-        this.resultChangeWordWithSubStringText = reader.
+        this.expectedChangeWordWithSubStringText = reader.
                 readLines(changeWordWithSubStringPath).get(0);
         Path correctWrongLetterPath = Paths.
                 get("test_texts/forCorrectWrongLetter");
-        this.resultCorrectWrongLetterText = reader.
+        this.expectedCorrectWrongLetterText = reader.
                 readLines(correctWrongLetterPath).get(0);
         Path every5LetterChangePath = Paths.
                 get("test_texts/forEvery5LetterChange");
-        this.resultEvery5LetterChangeText = reader.
+        this.expectedEvery5LetterChangeText = reader.
                 readLines(every5LetterChangePath).get(0);
     }
 
     @Test
-    public void testChangeEveryKLetter() { // TODO: 7/2/20  
+    public void testChangeEveryKLetter() {
         ChangeSymbolsByStringImpl service = new ChangeSymbolsByStringImpl();
         String actualText = service.changeEveryKLetter(sourceText, 5, "H");
-        assertEquals(actualText, resultEvery5LetterChangeText);
+        assertEquals(actualText, expectedEvery5LetterChangeText);
     }
 
     @Test
     public void testCorrectWrongLetter() {
         ChangeSymbolsByStringImpl service = new ChangeSymbolsByStringImpl();
         String actualText = service.correctWrongLetter(sourceText, "no", "nH");
-        assertEquals(actualText, resultCorrectWrongLetterText);
+        assertEquals(actualText, expectedCorrectWrongLetterText);
     }
 
     @Test
-    public void testChangeWordsSelectedByLength() { // TODO: 7/2/20  
+    public void testChangeWordsSelectedByLength() {
         ChangeSymbolsByStringImpl service = new ChangeSymbolsByStringImpl();
         String actualText = service.changeWordsSelectedByLength(
                 sourceText,
                 3,
                 "HHH");
-        assertEquals(actualText, resultChangeWordWithSubStringText);
+        assertEquals(actualText, expectedChangeWordWithSubStringText);
     }
 }
