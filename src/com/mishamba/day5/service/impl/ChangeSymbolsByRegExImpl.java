@@ -7,11 +7,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ChangeSymbolsByRegExImpl implements ChangeSymbols {
+    private final String EVERY_K_LETTER = "(?<=\\b\\w{%d})[\\w]";
+    private final String WORD_WITH_LENGTH = "(?<=\\b)\\w{%d}(?!\\w)";
 
     @Override
     public String changeEveryKLetter(@NotNull String text, int k,
                                      @NotNull String symbol) {
-        Pattern pattern = Pattern.compile("(?<=\\b\\w{" + (k - 1) + "})[\\w]");
+        String regEx = String.format(EVERY_K_LETTER, k - 1);
+        Pattern pattern = Pattern.compile(regEx);
         Matcher matcher = pattern.matcher(text);
         return matcher.replaceAll(symbol);
     }
@@ -28,8 +31,8 @@ public class ChangeSymbolsByRegExImpl implements ChangeSymbols {
     @Override
     public String changeWordsSelectedByLength(@NotNull String text, int length,
                                               @NotNull String subString) {
-        Pattern pattern = Pattern.compile
-                ("(?<=\\b)\\w{" + length + "}(?!\\w)");
+        String regEx = String.format(WORD_WITH_LENGTH, length);
+        Pattern pattern = Pattern.compile(regEx);
         Matcher matcher = pattern.matcher(text);
         return matcher.replaceAll(subString);
     }

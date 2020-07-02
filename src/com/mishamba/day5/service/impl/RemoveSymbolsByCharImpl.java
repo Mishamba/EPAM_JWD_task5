@@ -6,38 +6,6 @@ import org.jetbrains.annotations.NotNull;
 public class RemoveSymbolsByCharImpl implements RemoveSymbols {
     @Override
     public String removeWordsStartsWithVowelsByLength(@NotNull String text, int length) {
-        /*char[] castedText = text.toCharArray();
-        int begin = 0;
-        for (int i = 0; i < castedText.length; i++) {
-            if (
-                    (castedText[i] == 'e') ||
-                    (castedText[i] == 'y') ||
-                    (castedText[i] == 'u') ||
-                    (castedText[i] == 'i') ||
-                    (castedText[i] == 'o') ||
-                    (castedText[i] == 'a')
-            ) {
-                int wordIndex = i;
-                int wordLength = 0;
-                while (castedText[wordIndex] != ' ') {
-                    wordLength++;
-                    wordIndex++;
-                }
-
-                if (wordLength == length) {
-                    char[] textWithoutSubString = new char
-                            [text.length() - length];
-                    System.arraycopy(castedText, 0, textWithoutSubString, 0, i);
-                    for (int j = i; j < textWithoutSubString.length; j++) {
-                        textWithoutSubString[j] = text.charAt(j + length);
-                    }
-
-                    castedText = textWithoutSubString;
-                }
-            }
-        }
-
-        return new String(castedText);*/
         char[] castedText = text.toCharArray();
         int begin = 0;
         for (int i = 0; i < castedText.length; i++) {
@@ -50,15 +18,15 @@ public class RemoveSymbolsByCharImpl implements RemoveSymbols {
 
             if ((i - begin == length - 1) && (
                     (castedText[i + 1] == ' ') ||
-                    (castedText[i + 1] == ',') ||
-                    (castedText[i + 1] == '.') ||
-                    (castedText[i + 1] == '!')) &&
+                            (castedText[i + 1] == ',') ||
+                            (castedText[i + 1] == '.') ||
+                            (castedText[i + 1] == '!')) &&
                     ((castedText[begin] == 'e') ||
-                    (castedText[begin] == 'y') ||
-                    (castedText[begin] == 'u') ||
-                    (castedText[begin] == 'i') ||
-                    (castedText[begin] == 'o') ||
-                    (castedText[begin] == 'a'))) {
+                            (castedText[begin] == 'y') ||
+                            (castedText[begin] == 'u') ||
+                            (castedText[begin] == 'i') ||
+                            (castedText[begin] == 'o') ||
+                            (castedText[begin] == 'a'))) {
                 char[] textWithSubString = new char
                         [castedText.length - length];
                 System.arraycopy(castedText, 0, textWithSubString, 0, begin);

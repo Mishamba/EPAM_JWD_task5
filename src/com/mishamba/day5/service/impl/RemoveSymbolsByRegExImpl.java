@@ -7,14 +7,18 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RemoveSymbolsByRegExImpl implements RemoveSymbols {
+    private final String PUNCTUATION_BETWEEN_LETTERS = "\\w\\p{Punct}\\w";
+    private final String PUNCTUATION = "\\p{Punct}";
+    private final String WORD_STARTS_WITH_VOWEL_WITH_LENGTH =
+            "(?<=\\b)[eyuioa]\\w{%d}(?!\\w)";
 
     @Override
     public String removePunctuation(@NotNull String text) {
         Pattern patternBetweenWords = Pattern.compile
-                ("\\w\\p{Punct}\\w");
+                (PUNCTUATION_BETWEEN_LETTERS);
         Matcher matcherBetweenWords = patternBetweenWords.matcher(text);
         String processingText = matcherBetweenWords.replaceAll(" ");
-        Pattern patternClearPunctuation = Pattern.compile("\\p{Punct}");
+        Pattern patternClearPunctuation = Pattern.compile(PUNCTUATION);
         Matcher matcherCrearPunctuation = patternClearPunctuation.
                 matcher(processingText);
         return matcherCrearPunctuation.replaceAll("");
@@ -24,7 +28,7 @@ public class RemoveSymbolsByRegExImpl implements RemoveSymbols {
     public String removeWordsStartsWithVowelsByLength(@NotNull String text,
                                                       int length) {
         Pattern pattern = Pattern.compile
-                ("(?<=\\b)[eyuioa]\\w{" + (length - 1) + "}(?!\\w)");
+                (String.format(WORD_STARTS_WITH_VOWEL_WITH_LENGTH, length - 1));
         Matcher matcher = pattern.matcher(text);
         return matcher.replaceAll("");
     }
