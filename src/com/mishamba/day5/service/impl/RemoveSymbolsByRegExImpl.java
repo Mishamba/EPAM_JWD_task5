@@ -28,7 +28,8 @@ public class RemoveSymbolsByRegExImpl implements RemoveSymbols {
     public String removeWordsStartsWithVowelsByLength(@NotNull String text,
                                                       int length) {
         Pattern pattern = Pattern.compile
-                (String.format(WORD_STARTS_WITH_VOWEL_WITH_LENGTH, length - 1));
+                (String.format(WORD_STARTS_WITH_VOWEL_WITH_LENGTH, length - 1),
+                        Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(text);
         return matcher.replaceAll("");
     }
